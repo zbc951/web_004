@@ -1,0 +1,93 @@
+//header
+@mixin headerBtn {
+    background: #141414;
+    border: solid 3px transparent;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: 0.3s all;
+    padding: 0 20px;
+    z-index: 1;
+}
+$headerBtn_activeBorder: #ffffff;
+
+//mainArea
+$mainArea_slideDot_BG: #ffffff;
+$mainArea_slideArrow_BG: #000000;
+$mainArea_gameImg_lightBG: linear-gradient(to right,transparent 0%,#ffffff9d 70%,transparent 100%);
+$mainArea_filter_liveBG_1: #f56fbe;
+$mainArea_filter_liveBG_2: #fe93d2;
+$mainArea_filter_sportBG_1: #30c54f;
+$mainArea_filter_sportBG_2: #56e074;
+$mainArea_filter_fishBG_1: #b466fe;
+$mainArea_filter_fishBG_2: #c88eff;
+$mainArea_filter_slotBG_1: #3db9fa;
+$mainArea_filter_slotBG_2: #6ad4fb;
+$mainArea_filter_boardBG_1: #f88b2a;
+$mainArea_filter_boardBG_2: #ffa04b;
+
+//主色系
+$mainBG_1: #fed600;
+$mainBG_2: #141414;
+$mainBG_3: #ffffff;
+
+$mainColor_1: #141414;
+$mainColor_2: #ffffff;
+
+$mainBorder_1: #141414;
+
+//select
+@mixin selectStyle_1 {
+    background: #ffffff;
+    border: solid 1px #141414;
+    color: #141414;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+//input
+@mixin inputStyle_1 {
+    background: #ffffff;
+    border: solid 1px #141414;
+    color: #141414;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 10px;
+
+    &::placeholder {
+        color: #505050;   
+    }
+}
+
+//button
+@mixin btnStyle_1 {
+    background: #fed600;
+    border: solid 1px #141414;
+    color: #141414;
+    font-size: 16px;
+    font-weight: bold;
+
+    &:hover,&:active,&.active {
+        background: #fe9500;
+    }
+}
+@mixin btnStyle_2 {
+    background: #141414;
+    border: solid 1px #141414;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+}
+@mixin nullBG {
+    background: #ffffff;
+    border: solid 1px #141414;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s all;
+}

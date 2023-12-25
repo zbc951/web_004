@@ -1,0 +1,838 @@
+.mainArea {
+    width: 100%;
+    height: auto;
+    padding-top: 120px;
+
+    //swiper
+    .swiper {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+
+        .swiper-slide {
+            height: auto !important;
+            font-size: 0;
+
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .swiper-pagination-bullets {
+            right: unset;
+            left: 25px;
+
+            .swiper-pagination-bullet {
+                width: 12px;
+                height: 12px;
+                background: $mainArea_slideDot_BG;
+                opacity: 0.4;
+                margin: 10px 0;
+            }
+
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-color: $mainArea_slideArrow_BG transparent;
+            left: 19px;
+            right: unset;
+            margin: 0;
+
+            &::before,
+            &::after {
+                content: "";
+            }
+        }
+        .swiper-button-prev {
+            top: 25%;
+            border-width: 0 12px 20px 12px;
+        }
+        .swiper-button-next {
+            top: 69%;
+            border-width: 20px 12px 0 12px;
+        }
+        
+        //marquee
+        .marqueeBox {
+            width: 21.36%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 50px;
+            transition: 0.3s all;
+            padding: 0 3% 7% 2%;
+            z-index: 1;
+
+            .marqueeTitle {
+                color: $mainColor_1;
+                font-size: 1.05vw;
+                font-weight: bold;
+                flex-shrink: 0;
+                margin: 14.5% 0 5% 2%;
+
+                span {
+                    font-size: 1.31vw;
+                }
+            }
+
+            .marquee {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+
+                p {
+                    color: $mainColor_1;
+                    font-size: 0.95vw;
+                    font-weight: bold;
+                    padding-bottom: 45%;
+                    animation: marquee 5s linear 0s infinite;
+
+                    span {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                @keyframes marquee {
+                    0% {
+                        transform: translateY(0);
+                    }
+
+                    100% {
+                        transform: translateY(-100%);
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: 1280px) {
+            
+            .marqueeBox {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+    }
+
+    //article
+    article {
+        width: 100%;
+        height: auto;
+
+        //top
+        .top {
+            width: 100%;
+            height: 405px;
+
+            .title {
+                width: 100%;
+                height: 128px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    color: $mainColor_1;
+                    font-size: 25px;
+                    font-weight: bold;
+
+                    span {
+                        font-size: 35px;
+                        position: relative;
+                        z-index: 1;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 28px;
+                            height: 28px;
+                            background: $mainBG_1;
+                            border-radius: 50%;
+                            top: -3px;
+                            left: -12px;
+                            z-index: -1;
+                        }
+                    }
+                }
+
+                .arrowBox {
+                    width: auto;
+                    height: auto;
+                    display: flex;
+                    margin: 3px 45px 0 0;
+
+                    &:last-child {
+                        margin: 3px 0 0 45px;
+                        transform: scaleX(-1);
+                    }
+
+                    i {
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 8px 0 8px 12px;
+                        border-color: transparent $mainBG_2;
+                        margin-right: 5px;
+
+                        &:nth-of-type(even) {
+                            border-color: transparent $mainBG_1;
+                        }
+                    }
+                }
+            }
+
+            //swiper
+            .swiperBox {
+                width: 80%;
+                height: 230px;
+                position: relative;
+                margin: 0 auto;
+
+                .swiper-middle {
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+    
+                    .swiper-wrapper {
+                        align-items: flex-end;
+    
+                        .swiper-slide {
+                            width: 335px;
+                            height: 215px;
+                            display: flex;
+                            justify-content: flex-end;
+
+                            .bottomBox {
+                                width: 320px;
+                                height: 100%;
+                                position: relative;
+                                transition: 0.15s all;
+                                cursor: pointer;
+
+                                &:hover {
+
+                                    .gameImg {
+                                        transform: translate(0,0);
+
+                                        &::before {
+                                            animation: light 1.2s ease-out 0s infinite;
+                                        }
+                                    }
+                                }
+
+                                &:active,&.active {
+                                    transform: scale(1.05,0.98);
+                                }
+
+                                .gameImg {
+                                    width: 100%;
+                                    height: 180px;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    transform: translate(-15px,-15px);
+                                    transition: 0.3s all;
+                                    overflow: hidden;
+
+                                    &::before {
+                                        content: "";
+                                        position: absolute;
+                                        width: 150px;
+                                        height: 400px;
+                                        background: $mainArea_gameImg_lightBG;
+                                        top: -145px;
+                                        left: -170px;
+                                        transform: rotate(15deg);
+                                    }
+
+                                    @keyframes light {
+                                        0% {
+                                            left: -170px;
+                                        }
+
+                                        50% {
+                                            left: 400px;
+                                        }
+
+                                        100% {
+                                            left: 400px;
+                                        }
+                                    }
+                                }
+
+                                .null {
+                                    width: 100%;
+                                    height: 180px;
+                                    background: $mainBG_1;
+                                    border: solid 3px $mainBorder_1;
+                                }
+
+                                .textBox {
+                                    width: 100%;
+                                    height: 35px;
+                                    background: $mainBG_2;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    p {
+                                        color: $mainColor_2;
+                                        font-size: 20px;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .swiper-button-next-2,
+                .swiper-button-prev-2 {
+                    width: 26px;
+                    height: 30px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    transition: 0.3s all;
+                    cursor: pointer;
+
+                    &:hover {
+
+                        &::before,
+                        &:after {
+                            transform: translate(0,0);
+                        }
+                    }
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        transform: translate(-5px,-8px);
+                        transition: 0.3s all;
+                        filter: brightness(0);
+                    }
+                }
+                .swiper-button-prev-2 {
+                    left: -5%;
+
+                    &:active,&.active {
+                        transform: translate(-5px,-50%);
+
+                        &::before,
+                        &:after {
+                            transform: translate(-5px,0);
+                        }
+                    }
+                }
+                .swiper-button-next-2 {
+                    right: -5%;
+                    transform: translateY(-50%) scaleX(-1);
+
+                    &:active,&.active {
+                        transform: translate(5px,-50%) scaleX(-1);
+
+                        &::before,
+                        &:after {
+                            transform: translate(-5px,0);
+                        }
+                    }
+                }
+            }
+        }
+
+        //bottom
+        .bottom {
+            width: 100%;
+            height: auto;
+            padding: 50px 0;
+
+            .gameBox {      
+                width: 88.56%;
+                height: auto;
+                display: flex;
+                margin: 0 auto;
+
+                .left {
+                    width: 33.23%;
+                    height: auto;
+                    flex-shrink: 0;
+                    margin-right: 50px;
+
+                    .gameLink {
+                        width: 100%;
+                        height: 0;
+                        position: relative;
+                        cursor: pointer;
+                        padding-top: 112.5%;
+
+                        &:hover,&:active,&.active {
+
+                            .nameBox {
+                                opacity: 0;
+                                transform: scale(0);
+                            }
+
+                            .filter {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 0;
+
+                                &::before {
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 0;
+                                }
+
+                                p {
+                                    opacity: 1;
+                                    transition-delay: 0.5s;
+
+                                    span {
+                                        animation: arrowJump 1s linear 0.5s infinite;
+                                    }
+                                }
+                            }
+                        }
+
+                        .nameBox {
+                            width: 45%;
+                            height: 0;
+                            position: absolute;
+                            left: -15px;
+                            bottom: -15px;
+                            transition: 0.3s all;
+                            transform-origin: left bottom;
+                            padding-top: 27.33%;
+
+                            p {
+                                color: $mainColor_1;
+                                font-size: 1.57vw;
+                                font-weight: bold;
+                                position: absolute;
+                                left: 40%;
+                                top: 60%;
+                                transform: translate(-50%,-50%);
+                            }
+                        }
+
+                        .filter {
+                            width: 0;
+                            height: 0;
+                            background: $mainArea_filter_liveBG_1;
+                            border-radius: 0 50% 100% 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            transition: 0.5s all;
+                            transform-origin: left top;
+                            overflow: hidden;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 0;
+                                height: 0;
+                                background: $mainArea_filter_liveBG_2;
+                                border-radius: 0 50% 100% 50%;
+                                transition: 0.8s all;
+                                transition-delay: 0.1s;
+                                transform-origin: left top;
+                            }
+
+                            p {
+                                color: $mainColor_2;
+                                font-size: 3vw;
+                                font-weight: bold;
+                                text-shadow: 5px 3px 0 $mainColor_1;
+                                display: flex;
+                                align-items: center;
+                                white-space: nowrap;
+                                position: relative;
+                                opacity: 0;
+                                pointer-events: none;
+                                transition: 0.3s all;
+
+                                span {
+                                    display: block;
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 1.2vw 0 1.2vw 2.5vw;
+                                    border-color: transparent $mainColor_2;
+                                    margin-left: 15%;
+                                    filter: drop-shadow(4px 4px 0 #141414);
+                                }
+
+                                @keyframes arrowJump {
+                                    0% {
+                                        transform: scale(1);
+                                        margin-left: 10%;
+                                    }
+
+                                    25% {
+                                        transform: scale(0.3,1.2);
+                                        margin-left: 0%;
+                                    }
+
+                                    45% {
+                                        transform: scale(1.4,0.5);
+                                        margin-left: 15%;
+                                    }
+
+                                    60% {
+                                        transform: scale(0.5,1.5);
+                                        margin-left: 15%;
+                                    }
+
+                                    70% {
+                                        transform: scale(1);
+                                        margin-left: 10%;
+                                    }
+
+                                    100% {
+                                        transform: scale(1);
+                                        margin-left: 10%;
+                                    }
+                                }
+                            }
+
+                            i {
+                                width: 20px;
+                                height: 20px;
+                                background: $mainColor_2;
+                                border-radius: 50%;
+                                position: absolute;
+                                transform: translate(-50%,-50%);
+                                animation: ripple 0.8s linear 0s infinite;
+                            }
+
+                            @keyframes ripple {
+                                0% {
+                                    box-shadow: 0 0 0 0 #fe93d2,0 0 0 0 #ffffff;
+                                }
+
+                                60% {
+                                    box-shadow: 0 0 0 0 #fe93d2,0 0 0 10px #ffffff;
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 0 11px #fe93d2,0 0 0 10px #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .right {
+                    width: 100%;
+                    height: auto;
+                    display: grid;
+                    grid-template-columns: repeat(2,1fr);
+                    gap: 50px 35px;
+
+                    .gameLink {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        cursor: pointer;
+
+                        &.sport {
+
+                            .nameBox {
+                                width: 41.73%;
+                                padding-top: 22.4%;
+                            }
+
+                            .filter {
+                                background: $mainArea_filter_sportBG_1;
+
+                                &::before {
+                                    background: $mainArea_filter_sportBG_2;
+                                }
+
+                                i {
+                                    animation: ripple_sport 0.8s linear 0s infinite;
+                                }
+                            }
+                        }
+                        &.fish {
+
+                            .nameBox {
+                                width: 44.42%;
+                                padding-top: 23%;
+                            }
+
+                            .filter {
+                                background: $mainArea_filter_fishBG_1;
+
+                                &::before {
+                                    background: $mainArea_filter_fishBG_2;
+                                }
+
+                                i {
+                                    animation: ripple_fish 0.8s linear 0s infinite;
+                                }
+                            }
+                        }
+                        &.slot {
+
+                            .nameBox {
+                                width: 40%;
+                                padding-top: 22.4%;
+                            }
+
+                            .filter {
+                                background: $mainArea_filter_slotBG_1;
+
+                                &::before {
+                                    background: $mainArea_filter_slotBG_2;
+                                }
+
+                                i {
+                                    animation: ripple_slot 0.8s linear 0s infinite;
+                                }
+                            }
+                        }
+                        &.board {
+
+                            .nameBox {
+                                width: 46%;
+                                padding-top: 25.4%;
+                            }
+
+                            .filter {
+                                background: $mainArea_filter_boardBG_1;
+
+                                &::before {
+                                    background: $mainArea_filter_boardBG_2;
+                                }
+
+                                i {
+                                    animation: ripple_board 0.8s linear 0s infinite;
+                                }
+                            }
+                        }
+
+                        &:hover,&:active,&.active {
+
+                            .nameBox {
+                                opacity: 0;
+                                transform: scale(0);
+                            }
+
+                            .filter {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 0;
+
+                                &::before {
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 0;
+                                }
+
+                                p {
+                                    opacity: 1;
+                                    transition-delay: 0.5s;
+
+                                    span {
+                                        animation: arrowJump 1s linear 0.5s infinite;
+                                    }
+                                }
+                            }
+                        }
+
+                        .nameBox {
+                            height: 0;
+                            position: absolute;
+                            left: -15px;
+                            bottom: -15px;
+                            transition: 0.3s all;
+                            transform-origin: left bottom;
+
+                            p {
+                                color: $mainColor_1;
+                                font-size: 1.57vw;
+                                font-weight: bold;
+                                text-align: center;
+                                white-space: nowrap;
+                                position: absolute;
+                                left: 40%;
+                                top: 60%;
+                                transform: translate(-50%,-50%);
+                            }
+                        }
+
+                        .filter {
+                            width: 0;
+                            height: 0;
+                            border-radius: 0 50% 100% 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            transition: 0.5s all;
+                            transform-origin: left top;
+                            overflow: hidden;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 0;
+                                height: 0;
+                                border-radius: 0 50% 100% 50%;
+                                transition: 0.8s all;
+                                transition-delay: 0.1s;
+                                transform-origin: left top;
+                            }
+
+                            p {
+                                color: $mainColor_2;
+                                font-size: 3vw;
+                                font-weight: bold;
+                                text-shadow: 5px 3px 0 $mainColor_1;
+                                display: flex;
+                                align-items: center;
+                                white-space: nowrap;
+                                position: relative;
+                                opacity: 0;
+                                pointer-events: none;
+                                transition: 0.3s all;
+
+                                span {
+                                    display: block;
+                                    width: 0;
+                                    height: 0;
+                                    border-style: solid;
+                                    border-width: 1.2vw 0 1.2vw 2.5vw;
+                                    border-color: transparent $mainColor_2;
+                                    margin-left: 15%;
+                                    filter: drop-shadow(4px 4px 0 #141414);
+                                }
+
+                                @keyframes arrowJump {
+                                    0% {
+                                        transform: scale(1);
+                                        margin-left: 10%;
+                                    }
+
+                                    25% {
+                                        transform: scale(0.3,1.2);
+                                        margin-left: 0%;
+                                    }
+
+                                    45% {
+                                        transform: scale(1.4,0.5);
+                                        margin-left: 15%;
+                                    }
+
+                                    60% {
+                                        transform: scale(0.5,1.5);
+                                        margin-left: 15%;
+                                    }
+
+                                    70% {
+                                        transform: scale(1);
+                                        margin-left: 10%;
+                                    }
+
+                                    100% {
+                                        transform: scale(1);
+                                        margin-left: 10%;
+                                    }
+                                }
+                            }
+
+                            i {
+                                width: 20px;
+                                height: 20px;
+                                background: $mainColor_2;
+                                border-radius: 50%;
+                                position: absolute;
+                                transform: translate(-50%,-50%);
+                            }
+
+                            @keyframes ripple_sport {
+                                0% {
+                                    box-shadow: 0 0 0 0 #56e074,0 0 0 0 #ffffff;
+                                }
+
+                                80% {
+                                    box-shadow: 0 0 0 0 #56e074,0 0 0 10px #ffffff;
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 0 11px #56e074,0 0 0 10px #ffffff;
+                                }
+                            }
+                            @keyframes ripple_fish {
+                                0% {
+                                    box-shadow: 0 0 0 0 #c88eff,0 0 0 0 #ffffff;
+                                }
+
+                                80% {
+                                    box-shadow: 0 0 0 0 #c88eff,0 0 0 10px #ffffff;
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 0 11px #c88eff,0 0 0 10px #ffffff;
+                                }
+                            }
+                            @keyframes ripple_slot {
+                                0% {
+                                    box-shadow: 0 0 0 0 #6ad4fb,0 0 0 0 #ffffff;
+                                }
+
+                                80% {
+                                    box-shadow: 0 0 0 0 #6ad4fb,0 0 0 10px #ffffff;
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 0 11px #6ad4fb,0 0 0 10px #ffffff;
+                                }
+                            }
+                            @keyframes ripple_board {
+                                0% {
+                                    box-shadow: 0 0 0 0 #ffa04b,0 0 0 0 #ffffff;
+                                }
+
+                                80% {
+                                    box-shadow: 0 0 0 0 #ffa04b,0 0 0 10px #ffffff;
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 0 11px #ffa04b,0 0 0 10px #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
